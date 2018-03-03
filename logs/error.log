@@ -1,0 +1,3 @@
+2018.03.04 at 00:32:15 CST ERROR org.bearfly.ewords.utils.JDBCUtils 36 getConnectionByProperties - url=jdbc:sqlite::resource:data/ewords.db, driver=org.sqlite.JDBC, user=null
+2018.03.04 at 00:32:15 CST ERROR org.bearfly.ewords.utils.JDBCUtils 36 getConnectionByProperties - url=jdbc:sqlite::resource:data/ewords.db, driver=org.sqlite.JDBC, user=null
+2018.03.04 at 00:32:52 CST ERROR org.bearfly.ewords.utils.JDBCUtils 36 getConnectionByProperties - url=jdbc:sqlite::resource:data/ewords.db, driver=org.sqlite.JDBC, user=null
