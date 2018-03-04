@@ -43,10 +43,17 @@ public class JDBCUtils {
     
     public static void closeConnection() {
         try {
-            if (connection != null)
-                connection.close();
+            if (connection != null) connection.close();
         } catch (SQLException e) {
             // connection close failed.
+           e.printStackTrace();
+        }
+    }
+    
+    public static void closeConnection(Connection conn) {
+        try {
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
            e.printStackTrace();
         }
     }

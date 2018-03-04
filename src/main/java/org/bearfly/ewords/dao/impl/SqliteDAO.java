@@ -9,12 +9,13 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bearfly.ewords.dao.IEWordDAO;
 import org.bearfly.ewords.model.EWord;
 import org.bearfly.ewords.utils.JDBCUtils;
-
-public class SqliteDAO {
+import org.springframework.stereotype.Repository;
+@Repository("ewordDAO")
+public class SqliteDAO implements IEWordDAO{
     private static Logger logger = LogManager.getLogger(SqliteDAO.class);
-
     private static Connection connection = null;
 /*    static {
         try {
@@ -46,15 +47,5 @@ public class SqliteDAO {
             e.printStackTrace();
         }
         return ewordList;
-    }
-
-    public void closeConnection() {
-        try {
-            if (connection != null)
-                connection.close();
-        } catch (SQLException e) {
-            // connection close failed.
-            e.printStackTrace();
-        }
     }
 }
