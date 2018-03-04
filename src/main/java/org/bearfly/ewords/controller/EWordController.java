@@ -2,6 +2,7 @@ package org.bearfly.ewords.controller;
 
 import javax.annotation.Resource;
 
+import org.bearfly.ewords.model.Word;
 import org.bearfly.ewords.service.IEWordService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,14 +34,36 @@ public class EWordController {
         }
         return jsonStr;
     }
-
+    
+    @ResponseBody
+    @RequestMapping("/eword")
+    public String getEword(String eword, String cword) {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonStr = "";
+        try {
+            jsonStr = mapper.writeValueAsString(ewService.getWord(new Word(null, eword, cword)));
+            System.out.println(jsonStr);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonStr;
+    }
     @ResponseBody
     @RequestMapping(value = "/delword", method = RequestMethod.POST)
     public String delEwordsList(int id) {
-        System.out.println(id);
-        return "success";
+        Boolean result = ewService.delEword(new Word(id,null,null));
+        
+        return result?"success":"failed";
     }
-
+    
+    @ResponseBody
+    @RequestMapping(value = "/addword", method = RequestMethod.POST)
+    public String delEwordsList(String eword, String cword) {
+        Boolean result = ewService.addEword(new Word(eword, cword));
+       
+        return result?"success":"failed";
+    }
+    
     public IEWordService getEwService() {
         return ewService;
     }

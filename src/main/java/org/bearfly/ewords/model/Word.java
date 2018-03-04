@@ -1,23 +1,28 @@
 package org.bearfly.ewords.model;
 
-public class EWord {
+public class Word {
 
-    private int id;
+    private Integer id;
     private String eword;
     private String cword;
 
-    public EWord(int id, String eword, String cword) {
+    public Word(Integer id, String eword, String cword) {
         super();
         this.id = id;
         this.eword = eword;
         this.cword = cword;
     }
+    public Word( String eword, String cword) {
+        super();
+        this.eword = eword;
+        this.cword = cword;
+    }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

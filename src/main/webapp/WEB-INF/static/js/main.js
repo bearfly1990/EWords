@@ -26,3 +26,18 @@ String.prototype.format = function(args) {
     }
     return result;
 }
+function toggleHidden(){
+	$(".detail").each(function (index, row) {
+	    //console.log(row);
+	    $(row).hover(function(){
+	    	$(row).children(".cword").toggleClass('hidden');
+	    	$(row).children(".oper").children(".del").toggle();
+	    });
+	});
+}
+function toggleLastRow(){
+	 $('.table>.row:last').hover(function(){
+     	$('.table>.row:last').children(".cword").toggleClass('hidden');
+         $('.table>.row:last').children(".oper").children(".del").toggle();
+     });
+}
