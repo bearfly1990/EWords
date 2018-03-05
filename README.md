@@ -7,9 +7,9 @@ You could run the project with `mvn jetty:run` or just `jetty:run` when run with
 
 You could also run the maven `clean install` to generate the war file and deploy it to the Tomcat manually.
 
-I use `Sqlite3` instead of `Mysql`, so that it's easy to move.
+I use `Sqlite3` instead of `Mysql`, so that it's easy to be moved.
 
-**Note:** please make the Tomcat `reloadable='false'`, otherwise an exception `illegal access` may be thrown at runtime.
+**Note:** please config Tomcat `reloadable='false'`, otherwise an exception `illegal access` may be thrown at runtime.
 
 ## Demo
 ![Demo](sources/V0.1.gif)
