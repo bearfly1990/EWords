@@ -26,18 +26,86 @@ String.prototype.format = function(args) {
     }
     return result;
 }
-function toggleHidden(){
-	$(".detail").each(function (index, row) {
-	    //console.log(row);
-	    $(row).hover(function(){
-	    	$(row).children(".cword").toggleClass('hidden');
-	    	$(row).children(".oper").children(".del").toggle();
-	    });
-	});
+function toggleDisplay(){
+	$(".row").on("mouseover mouseout",function(event){
+		//if(event.type == "mouseover"){}
+    	$(this).children(".cword").children(".cspan").toggle();
+    	$(this).children(".oper").children(".del").toggle();
+    });
 }
-function toggleLastRow(){
-	 $('.table>.row:last').hover(function(){
-     	$('.table>.row:last').children(".cword").toggleClass('hidden');
-         $('.table>.row:last').children(".oper").children(".del").toggle();
-     });
+
+function lastRowDisplay(){
+	$(".row").last().on("mouseover mouseout",function(event){
+		//if(event.type == "mouseover"){}
+    	$(this).children(".cword").children(".cspan").toggle();
+    	$(this).children(".oper").children(".del").toggle();
+    });
+}
+
+function bindDeleteLinks(){
+	$(".del").on("click", function(event){
+		var thisRow = $(this);
+    	var flag = confirm("Delete it?");//window.confirm("Press a button");  
+    	if (flag==true)
+    	{  
+    		$.ajax({
+                url:'delword',
+                type:'POST', //POST
+                async:true,    //或false,是否异步
+                data:{id:$(this).attr("id")
+                },
+                timeout:10000,    //超时时间
+                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                complete:function(data){
+                	   if(data.responseText=="success") {
+                		   thisRow.parent().parent().remove();
+                       }else{
+                           alert("delete error!")
+                       }
+                }
+            }); 
+    	}  
+	});
+	
+	
+ /*   $(".del").each(function (index, row) {
+        //console.log(row);
+        $(row).click(function(){
+
+        });
+    });*/
+}
+
+function lastBindDeleteLinks(){
+	$(".del").last().on("click", function(event){
+		var thisRow = $(this);
+    	var flag = confirm("Delete it?");//window.confirm("Press a button");  
+    	if (flag==true)  
+    	{  
+    		$.ajax({
+                url:'delword',
+                type:'POST', //POST
+                async:true,    //或false,是否异步
+                data:{id:$(this).attr("id")
+                },
+                timeout:10000,    //超时时间
+                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+                complete:function(data){
+                	   if(data.responseText=="success") {
+                		   thisRow.parent().parent().remove();
+                       }else{
+                           alert("delete error!")
+                       }
+                }
+            }); 
+    	}  
+	});
+	
+	
+ /*   $(".del").each(function (index, row) {
+        //console.log(row);
+        $(row).click(function(){
+
+        });
+    });*/
 }

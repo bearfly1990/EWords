@@ -231,11 +231,8 @@ iframe {
 .row.header:hover{
   background-color: #6c7ae0;
 }
-.row .hidden{
-	color: #fff;
-	background-color: #fff;
-}
-.del{
+
+.del, .cspan{
 	display:none;
 }
 @media (max-width: 768px) {
