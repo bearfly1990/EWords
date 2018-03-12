@@ -15,8 +15,8 @@ I use `Sqlite3` instead of `Mysql`, so that it's easy to be moved.
 ![Demo](sources/V0.1.gif)
 
 ## Update Plan&Log:
-- [ ] Use Vue.js and Update UI
+- [ ] Use Vue.js or ReactJS and Update UI
 - [ ] Use Mybatis instead of original JDBC
-- [ ] Remove unneed folders(e.g. target/, logs/)
-- [ ] Remove not used static resource(e.g. fonts/select2.js/bootstrap/...)
+- [x] Remove unneed folders(e.g. target/, logs/)
+- [x] Remove not used static resource(e.g. fonts/select2.js/bootstrap/...)
 - [x] Setup Project
