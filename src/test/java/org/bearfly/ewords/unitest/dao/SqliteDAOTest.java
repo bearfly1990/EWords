@@ -13,7 +13,7 @@ public class SqliteDAOTest {
     }
     @Test
     public void testAddEword() {
-        SqliteDAO sd = new SqliteDAO();
+        //SqliteDAO sd = new SqliteDAO();
         //sd.addEWord(new Word("A", "B"));
         
     }
